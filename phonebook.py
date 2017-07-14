@@ -73,6 +73,13 @@ class Person:
       phonebook_by_phone.append([i, self.get_names(phonebook, i)])
     
     return phonebook_by_phone
+
+class Manager(Person):
+  """docstring for Manager"""
+  def __init__(self, grade):
+    super(Person, self).__init__()
+    self.grade = grade
+    
   
 if __name__ == '__main__':
   phones_and_ABC = [[37615, 'Max'], [710434, 'Max'], [36683, 'Valera'], [36366, 'Khadin'], ['+7 (985) 181-72-75', 'Khadin'], [25007, 'Ershov'], [25007, 'GD']]
@@ -80,8 +87,10 @@ if __name__ == '__main__':
     pb1 = Phonebook(i[0], i[1])
   
   print(pb1.phone_list, '\n', pb1.person_list)
-  person = Person(pb1)
+  person = Manager(pb1)
   print(person.person_list)
+  person.grade=5
+  print(person.grade)
   
   for i in person.get_phones_by_person(pb1):
     print(i)
